@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>{{ta}}</h3>
+    <a href="#/tarjetacredito/new">Nueva Tarjeta Credito</a>
+
+    <table class="table">
+          <thead>
+                <tr>
+                      <th>Número Tarjeta</th>
+                      <th>Mes caducidad</th>
+                      <th>Año caducidad</th>
+                      <th>Nombre Titular</th>
+                      <th>CVV</th>
+                      <th>Tipo tarjeta</th>
+                      <th>ID Cuenta Bancaria</th>
+                    </tr>
+              </thead>
+          <tbody>
+                <tr ng-repeat="tarjetaCredito in tarjetas">
+                      <td>{{tarjetaCredito.numero}}</td>
+                      <td>{{tarjetaCredito.meCaducidad}}</td>
+                      <td>{{tarjetaCredito.anyoCaducidad}}</td>
+                      <td>{{tarjetaCredito.nombreTitular}}</td>
+                      <td>{{tarjetaCredito.cvv}}</td>
+                      <td>{{tarjetaCredito.tipoTarjeta}}</td>
+                      <td>{{tarjetaCredito.idCuentaBancaria}}</td>
+                       <td><a href="#/tarjetacredito/update/{{tarjetaCredito.idTarjetaCredito}}">Actualizar</a></td>
+                       <td><a href="#/tarjetacredito/delete/{{tarjetaCredito.idTarjetaCredito}}">Borrar</a></td>
+                    </tr>
+              </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,29 @@
+
+<div class="container">
+    <h3>{{on}}</h3>
+    <form name="miFormulario" id="miFormulario"> 
+        numero:<input ng-model="tarjetaCredito.numero" name="numero" id="numero" ng-pattern="/^[0-9a-zA-Z]{2} [0-9a-zA-Z]{2}$/" required>
+        <span ng-show="miFormulario.numero.$error.required && miFormulario.numero.$dirty">El campo es requerido</span>
+        <span ng-show="miFormulario.numero.$error.pattern && miFormulario.numero.$dirty">El patron es XX XX</span>
+        <br>   
+        mesCaducidad:<input ng-model="tarjetaCredito.mesCaducidad" name="mesCaducidad" id="mesCaducidad" type="number" max="12" required>
+        <span ng-show="miFormulario.mesCaducidad.$error.required && miFormulario.mesCaducidad.$dirty">El campo es requerido</span>
+        <span ng-show="miFormulario.mesCaducidad.$error.max && miFormulario.mesCaducidad.$dirty">El mes no puede ser mayor a 12</span>
+        <br>   
+        anyoCaducidad:<input ng-model="tarjetaCredito.anyoCaducidad" name="anyoCaducidad" id="anyoCaducidad">
+        <br>  
+        nombreTitular:<input ng-model="tarjetaCredito.nombreTitular" name="nombreTitular" id="nombreTitular">
+        <br>  
+        cvv:<input ng-model="tarjetaCredito.cvv" name="cvv" id="cvv">
+        <br>   
+        Cuenta Bancaria<select ng-model="tarjetaCredito.idCuentaBancaria" ng-options="tarjeta.idCuentaBancaria as tarjeta.numero for tarjeta in listaTarjetas track by tarjeta.idTarjetaCredito" name="idCuentaBancaria" id="idCuentaBancaria"></select>
+        <br>  
+        tipoTarjeta:<select ng-model="tarjetaCredito.tipoTarjeta" ng-options="tarjeta.nombre as tarjeta.nombre for tarjeta in tarjetas track by tarjeta.idTarjetaCredito" name="tipoTarjeta" id="tipoTarjeta">
+            <option value="">--Elige opcion--</option>
+        </select>
+        <br>   
+
+        <button class="btn btn-primary" ng-click="insert()" ng-disabled="miFormulario.$invalid">Insertar nueva tarjeta</button>
+        <p>{{prueba}}</p>
+    </form>
+</div>
